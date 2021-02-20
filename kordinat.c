@@ -1,105 +1,60 @@
 #include <stdio.h>
 #include <stdlib.h>
-    int A_noktasinin_koordinati[10][10];        int sayac_koordinat=0;      float WA,WB,WC,d ;                  float sonucWB=0;
-    int B_noktasinin_koordinati[10][10];        int x1,x2,x3,y3,y1,y2;      float cx,cy,bx,by;                  float sonucWC=0;
-    int C_noktasinin_koordinati[10][10];        int sayac_koordinat3=0;     float Ax,Ay,Bx,By,Cx,Cy,Px,Py;      float sonucd=0;
-    int P_noktasinin_koordinati[10][10];        int sayac_koordinat2=0;     float A,B,C,P[10];                  float sonucy=0;
-    float sonucx =0;                            int x,y;                    float sonucWA=0;                    float sonucbx=0;
-    float sonucby =0;
-    float sonuccx =0;
-    float sonuccy =0;
 
 
+int main(){
+float Ax,Bx,Cx,Px,Ay,By,Cy,Py,bx,by,cx,cy,d,WA,WB,WC,x,y;
 
 
- int main()
-{
+printf("Ilk Noktanin X degerini giriniz:");
+scanf("%f",&Ax);
 
-       sayac_koordinat=sayac_koordinat+1;
+printf("Ilk Noktanin Y degerini giriniz:");
+scanf("%f",&Ay);
 
-     printf("ucgenin koordinatlarini giriniz:\n");
+printf("Ikinci Noktanin X degerini giriniz:");
+scanf("%f",&Bx);
 
+printf("Ikinci Noktanin Y degerini giriniz:");
+scanf("%f",&By);
 
-     printf("A noktasinin x koordinatini giriniz:\n");
-     scanf("%f",&Ax);
+printf("Ucuncunun X degerini giriniz:");
+scanf("%f",&Cx);
 
-     printf("A noktasinin y koordinatini giriniz:\n");
-     scanf("%f",&Ay);
+printf("Ucuncunun Y degerini giriniz:");
+scanf("%f",&Cy);
 
+printf("\n\n\n");
 
-     printf("B noktasinin x koordinatini giriniz:\n");
-     scanf("%f",&Bx);
+printf("Noktanin X degerini giriniz:");
+scanf("%f",&Px);
 
-     printf("B noktasinin y koordinatini giriniz:\n");
-     scanf("%f",&By);
-
-
-     printf("C noktasinin x koordinatlarini giriniz:\n");
-     scanf("%f",&Cx);
-
-     printf("C noktasinin y koordinatlarini giriniz:\n");
-     scanf("%f",&Cy);
+printf("Noktanin Y degerini giriniz:");
+scanf("%f",&Py);
 
 
-          sonucbx = Bx-Ax;
-          sonucby = By-Ay;
-          sonuccx = Cx-Ax;
-          sonuccy = Cy-Ay;
-          sonucx = Px-Ax;
-          sonucy = Py-Ay;
+bx=Bx-Ax;
+by=By-Ay;
+cx=Cx-Ax;
+cy=Cy-Ay;
+x=Px-Ax;
+y=Py-Ay;
+
+d=(bx*cy)-(cx*by);
+WA=(x*(by-cy)+y*(cx-bx)+(bx*cy)-(cx*by))/d;
+WB=((x*cy)-(y*cx))/d;
+WC=((y*bx)-(x*by))/d;
+
+printf("WA:%f\n",WA);
+printf("WB:%f\n",WB);
+printf("WC:%f\n",WC);
 
 
-
-      printf("\n sonucbx=%.2f\n",sonucbx);
-
-      printf("\n sonucby=%.2f\n",sonucby);
-
-      printf("\n sonuccx=%.2f\n",sonuccx);
-
-      printf("\n sonuccy=%.2f\n",sonuccy);
-
-      printf("\n sonucx=%.2f\n",sonucx);
-
-      printf("\n sonucy=%.2f\n",sonucy);
-
-
-
-
-       sonucWA=(sonucx*(sonucby-sonuccy)+sonucy*(sonuccx-sonucbx)+sonucbx*sonuccy-sonuccx*sonucby)/d;
-
-       sonucWB=(sonucx*sonucbx-y*sonuccx)/d;
-
-       sonucWC=(sonucy*sonucbx-sonucx*sonucby)/d;
-
-       sonucd=(sonucbx*sonuccy)-(sonuccx*sonucby);
-
-       printf("\n sonucWA=%.2f\n",sonucWA);
-
-       printf("\n sonucWB=%.2f\n",sonucWB);
-
-       printf("\n sonucWC=%.2f\n",sonucWC);
-
-       printf("\n sonucd=%.2f\n",sonucd);
-
-
-
-
-       if((sonucWA>0 && sonucWA<1) && (sonucWB>0 && sonucWB<1) && (sonucWC>0 && sonucWC<1) && (sonucd>0 && 
-                                                                                               sonucd<1)) {
-
-
-               printf("Nokta ucgenin icindedir");
-
-       }
-
-       else  {
-
-          printf("Nokta ucgenin Disindadir:");
-
-
-     }
-
-
-
-    return 0;
+  if((WA>0 && WA<1)&&(WB>0 && WB<1)&&(WC>0 && WC<1)){
+    printf("NOKTA UCGENIN ICINDE");
+}
+else{
+    printf("NOKTA UCGENIN DISINDA");
+}
+return 0;
 }
